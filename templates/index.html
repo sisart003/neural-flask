@@ -2,14 +2,53 @@
 {% block title %}Home Page{% endblock %}
 {% block content %}
     <h1>Home Page</h1>
-    <p>{{ value }}</p>
-    <p>{{ result }}</p>
-    <ul>
-        {% for item in mylist %}
-            <li {% if item > 2 and item < 8 %} style="color: red"{% endif %}>{{item}}</li>
-        {% endfor %}
-    </ul>
+    <form method="POST" action="{{ url_for('index') }}">
+        <input type="text" name="username" placeholder="Enter your username"><br>
+        <input type="password" name="password" placeholder="Enter your password"><br>
+        <input type="submit" value="Login">
+    </form>
 
-    <a href="{{ url_for('redirect_endpoint') }}">Next Page with value</a>
+    <h1>File Upload</h1>
+    <form method="POST" action="{{ url_for('file_upload') }}" enctype="multipart/form-data">
+        <input type="file" name="file" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel, text/plain" required><br>
+        <input type="submit" value="Upload">
+    </form>
+
+    <h1>Convert to CSV</h1>
+    <form method="POST" action="{{ url_for('convert_csv') }}" enctype="multipart/form-data">
+        <input type="file" name="file" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" required><br>
+        <input type="submit" value="Upload">
+    </form>
+
+    <h1>Convert to CSV version 2</h1>
+    <form method="POST" action="{{ url_for('convert_csv_two') }}" enctype="multipart/form-data">
+        <input type="file" name="file" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" required><br>
+        <input type="submit" value="Upload">
+    </form>
+
+    <h1>JavaScript JSON Request</h1>
+    <button id="post_button">Send POST Request</button>
+
+
+    <script type="text/javascript">
+
+        const postButton = document.getElementById('post_button');
+        const jsonData = {name: 'Chrishart', greeting: 'Nice One!'}
+
+        postButton.addEventListener('click', () => {
+            fetch('{{ url_for("handle_post") }}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(jsonData)
+            })
+            .then(response => response.json())
+            .then(data => console.log('Success is Best: ', data))
+            .catch(error => console.error('Error: ', error))
+        });
+
+    </script>
+
 {% endblock %}
 
