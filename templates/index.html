@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Home Page{% endblock %}
+{% block content %}
+    <h1>Home Page</h1>
+    <p>{{ value }}</p>
+    <p>{{ result }}</p>
+    <ul>
+        {% for item in mylist %}
+            <li {% if item > 2 and item < 8 %} style="color: red"{% endif %}>{{item}}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{{ url_for('redirect_endpoint') }}">Next Page with value</a>
+{% endblock %}
+
