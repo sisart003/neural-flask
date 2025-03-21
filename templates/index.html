@@ -1,7 +1,15 @@
 {% extends "base.html" %}
 {% block title %}Home Page{% endblock %}
 {% block content %}
-    <h1>Home Page</h1>
+    <div class="container">
+        <p class="special">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore, eveniet?</p>
+        <img src="{{ url_for('static', filename='/img/bright-mina.jpg') }}" alt="">    
+        <p><a href="#" class="btn btn-primary">Button</a></p>
+    </div>
+
+{% endblock %}
+
+   <!-- <h1>Home Page</h1>
     <form method="POST" action="{{ url_for('index') }}">
         <input type="text" name="username" placeholder="Enter your username"><br>
         <input type="password" name="password" placeholder="Enter your password"><br>
@@ -27,10 +35,10 @@
     </form>
 
     <h1>JavaScript JSON Request</h1>
-    <button id="post_button">Send POST Request</button>
+    <button id="post_button">Send POST Request</button> -->
 
 
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
 
         const postButton = document.getElementById('post_button');
         const jsonData = {name: 'Chrishart', greeting: 'Nice One!'}
@@ -48,7 +56,4 @@
             .catch(error => console.error('Error: ', error))
         });
 
-    </script>
-
-{% endblock %}
-
+    </script> -->

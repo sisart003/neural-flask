@@ -5,18 +5,18 @@ from flask import Flask, render_template, request, Response, send_from_directory
 
 # request, make_response, redirect, url_for
 
-app = Flask(__name__, template_folder='templates')
+app = Flask(__name__, template_folder='templates', static_folder='static', static_url_path='/')
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    return 'Hello, World!'
+    return render_template('index.html')
     
     
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5555, debug=True)
     
 
-# commits -> Forms, POST, File Upload, Excel, Pandas
+# commits -> Forms, POST, File Upload, Excel, Pandas, JSON Response, File Download, File Handling
     
 # @app.route('/hello')
 # def hello():
