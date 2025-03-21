@@ -3,8 +3,9 @@
 {% block content %}
     <div class="container">
         <p class="special">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore, eveniet?</p>
-        <img src="{{ url_for('static', filename='/img/bright-mina.jpg') }}" alt="">    
-        <p><a href="#" class="btn btn-primary">Button</a></p>
+        <!-- <img src="{{ url_for('static', filename='/img/bright-mina.jpg') }}" alt="">     -->
+        <!-- <p><a href="#" class="btn btn-primary">Button</a></p> -->
+
     </div>
 
 {% endblock %}
@@ -57,3 +58,27 @@
         });
 
     </script> -->
+
+
+    <!-- <p>{{ message }}</p>
+    <p>
+       <a href="{{ url_for('set_data') }}" class="btn btn-primary">Set Session Data</a>
+    </p>
+    <p>
+       <a href="{{ url_for('get_data') }}" class="btn btn-warning">Get Session Data</a>
+    </p>
+    <p>
+       <a href="{{ url_for('clear_session') }}" class="btn btn-success">Clear Session Data</a>
+    </p>
+    <p>
+       <a href="{{ url_for('set_cookie') }}" class="btn btn-danger">Set Cookie</a>
+    </p>
+    <p>
+       <a href="{{ url_for('get_cookie') }}" class="btn btn-info">Get Cookie</a>
+    </p>
+    <p>
+       <a href="{{ url_for('remove_cookie') }}" class="btn btn-secondary">Delete Cookie</a>
+    </p>
+    <p>
+       <a href="{{ url_for('login') }}" class="btn btn-outline-secondary">Login</a>
+    </p> -->

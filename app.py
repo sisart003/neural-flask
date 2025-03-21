@@ -1,15 +1,22 @@
-import pandas as pd
-import os
-import uuid
-from flask import Flask, render_template, request, Response, send_from_directory, jsonify
+# import pandas as pd
+# import os
+# import uuid
+from flask import Flask, render_template
 
-# request, make_response, redirect, url_for
+# request, make_response, redirect, url_for, Response, send_from_directory, jsonify, flash, session,
 
 app = Flask(__name__, template_folder='templates', static_folder='static', static_url_path='/')
+app.secret_key = 'Some KEY'
 
-@app.route('/', methods=['GET', 'POST'])
+
+
+@app.route('/')
 def index():
     return render_template('index.html')
+
+
+
+    
     
     
 if __name__ == '__main__':
@@ -134,3 +141,68 @@ if __name__ == '__main__':
 #         f.write(f'{greeting}, {name}!')
         
 #     return jsonify({'message': 'Written to file'})
+
+
+
+
+# @app.route('/set_data')
+# def set_data():
+#     session['name'] = 'Chrishart'
+#     session['age'] = 25
+#     return render_template('index.html', message="Data set in session");
+
+
+# @app.route('/get_data')
+# def get_data():
+#     if 'name' in session.keys() and 'age' in session.keys():
+#         name = session['name']
+#         age = session['age']
+#         return render_template('index.html', message=f'Name: {name}, Age: {age}')
+#     else:
+#         return render_template('index.html', message='No data in session')
+    
+    
+# @app.route('/clear_session')
+# def clear_session():
+#     session.clear()
+#     return render_template('index.html', message='Session cleared')    
+
+
+
+# @app.route('/set_cookie')
+# def set_cookie():
+#     response = make_response(render_template('index.html', message="Cookie set"))
+#     response.set_cookie('cookie_name', 'cookie_value')
+#     return response
+
+
+
+# @app.route('/get_cookie')
+# def get_cookie():
+#     cookie_value = request.cookies.get('cookie_name', 'default_cookie')
+#     return render_template('index.html', message=f'Cookie value: {cookie_value}')
+
+
+
+# @app.route('/remove_cookie')
+# def remove_cookie():
+#     response = make_response(render_template('index.html', message="Cookie removed"))
+#     response.set_cookie('cookie_name', expires=0)
+#     return response
+
+
+
+# @app.route('/login', methods=['GET', 'POST'])
+# def login():
+#     if request.method == 'GET':
+#         return render_template('login.html')
+#     elif request.method == 'POST':
+#         username = request.form['username']
+#         password = request.form['password']
+        
+#         if username == 'admin' and password == 'admin':
+#             flash('Login successful', 'success')
+#         else:
+#             flash('Invalid credentials', 'error')
+            
+#         return render_template('index.html')
